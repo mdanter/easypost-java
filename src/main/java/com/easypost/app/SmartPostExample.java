@@ -1,3 +1,5 @@
+package com.easypost.app;
+
 // java -cp "target/easypost-java-2.0.2.jar:target/gson-2.2.2.jar" SmartPostExample
 
 import java.util.HashMap;
@@ -14,7 +16,7 @@ import com.easypost.model.Shipment;
 public class SmartPostExample {
 
     public static void main(String[] args) {
-        EasyPost.apiKey = "cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi";
+        EasyPost.apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
         
         Map<String, Object> fromAddressMap = new HashMap<String, Object>();
         fromAddressMap.put("name", "Simpler Postage Inc");

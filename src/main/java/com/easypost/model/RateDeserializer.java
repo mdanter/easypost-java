@@ -11,7 +11,7 @@ import com.google.gson.JsonParseException;
 import com.easypost.model.Rate;
 
 public class RateDeserializer implements JsonDeserializer<Rate> {
-	@Override
+	
 	public Rate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 
 		JsonObject jo = (JsonObject) json;
