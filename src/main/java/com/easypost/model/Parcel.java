@@ -59,9 +59,6 @@ public class Parcel extends EasyPostResource {
 
 
 	// create
-	public static Parcel create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static Parcel create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("parcel", params);
@@ -70,17 +67,11 @@ public class Parcel extends EasyPostResource {
 	}
 
 	// retrieve
-	public static Parcel retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static Parcel retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(Parcel.class, id), null, Parcel.class, apiKey);
 	}
 
 	// all
-	public static ParcelCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static ParcelCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(Parcel.class), params, ParcelCollection.class, apiKey);
 	}

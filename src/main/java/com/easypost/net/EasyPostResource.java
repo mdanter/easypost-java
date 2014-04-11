@@ -146,10 +146,6 @@ public abstract class EasyPostResource {
 		headers.put("Accept-Charset", CHARSET);
 		headers.put("User-Agent", String.format("EasyPost/v2 JavaClient/%s", EasyPost.VERSION));
 
-		if (apiKey == null) {
-			apiKey = EasyPost.apiKey;
-		}
-
 		headers.put("Authorization", String.format("Bearer %s", apiKey));
 
 		// debug headers
@@ -376,14 +372,10 @@ public abstract class EasyPostResource {
 	}
 
 	protected static <T> T _request(EasyPostResource.RequestMethod method, String url, Map<String, Object> params, Class<T> clazz, String apiKey) throws EasyPostException {
-		if ((EasyPost.apiKey == null || EasyPost.apiKey.length() == 0) && (apiKey == null || apiKey.length() == 0)) {
+		if ((apiKey == null || apiKey.length() == 0)) {
 			throw new EasyPostException(
 				"No API key provided. (set your API key using 'EasyPost.apiKey = {KEY}'. "
 					+ "Your API key can be found in your EasyPost dashboard, or you can email us at contact@easypost.com for assistance.");
-		}
-
-		if (apiKey == null) {
-			apiKey = EasyPost.apiKey;
 		}
 
 		String query;

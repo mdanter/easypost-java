@@ -1,6 +1,5 @@
 package com.easypost.model;
 
-import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,9 +69,6 @@ public class Rate extends EasyPostResource {
 	
 
 	// create
-	public static Rate create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static Rate create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("rate", params);
@@ -84,9 +80,6 @@ public class Rate extends EasyPostResource {
 	}
 
 	// retrieve
-	public static Rate retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static Rate retrieve(String id, String apiKey) throws EasyPostException {
 		Rate response;
 		response = request(RequestMethod.GET, instanceURL(Rate.class, id), null, Rate.class, apiKey);
@@ -95,9 +88,6 @@ public class Rate extends EasyPostResource {
 	}
 
 	// all
-	public static RateCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static RateCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(Rate.class), params, RateCollection.class, apiKey);
 	}

@@ -59,9 +59,6 @@ public class Tracker extends EasyPostResource {
 
 
 	// create
-	public static Tracker create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static Tracker create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("tracker", params);
@@ -70,17 +67,11 @@ public class Tracker extends EasyPostResource {
 	}
 
 	// retrieve
-	public static Tracker retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static Tracker retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(Tracker.class, id), null, Tracker.class, apiKey);
 	}
 
 	// all
-	public static TrackerCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static TrackerCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(Tracker.class), params, TrackerCollection.class, apiKey);
 	}

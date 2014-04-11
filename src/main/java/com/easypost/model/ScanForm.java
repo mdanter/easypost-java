@@ -35,9 +35,6 @@ public class ScanForm extends EasyPostResource {
 
 
 	// create
-	public static ScanForm create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static ScanForm create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("scan_form", params);
@@ -46,17 +43,11 @@ public class ScanForm extends EasyPostResource {
 	}
 
 	// retrieve
-	public static ScanForm retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static ScanForm retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(ScanForm.class, id), null, ScanForm.class, apiKey);
 	}
 
 	// all
-	public static ScanFormCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static ScanFormCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(ScanForm.class), params, ScanFormCollection.class, apiKey);
 	}

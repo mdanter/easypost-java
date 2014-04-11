@@ -67,9 +67,6 @@ public class CustomsItem extends EasyPostResource {
 
 
 	// create
-	public static CustomsItem create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static CustomsItem create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("customs_item", params);
@@ -78,17 +75,11 @@ public class CustomsItem extends EasyPostResource {
 	}
 
 	// retrieve
-	public static CustomsItem retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static CustomsItem retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(CustomsItem.class, id), null, CustomsItem.class, apiKey);
 	}
 
 	// all
-	public static CustomsItemCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static CustomsItemCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(CustomsItem.class), params, CustomsItemCollection.class, apiKey);
 	}

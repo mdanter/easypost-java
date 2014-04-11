@@ -48,15 +48,6 @@ public class Event extends EasyPostResource {
 		this.previousAttributes = previousAttributes;
 	}
 
-
-	public static Event retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
-
-	public static EventCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
-
 	public static Event retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(Event.class, id), null, Event.class, apiKey);
 	}

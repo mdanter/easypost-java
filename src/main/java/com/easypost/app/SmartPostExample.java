@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.easypost.EasyPost;
 import com.easypost.exception.EasyPostException;
 import com.easypost.model.Address;
 import com.easypost.model.Parcel;
@@ -16,7 +15,7 @@ import com.easypost.model.Shipment;
 public class SmartPostExample {
 
     public static void main(String[] args) {
-        EasyPost.apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
+        String apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
         
         Map<String, Object> fromAddressMap = new HashMap<String, Object>();
         fromAddressMap.put("name", "Simpler Postage Inc");
@@ -44,9 +43,9 @@ public class SmartPostExample {
         parcelMap.put("height", 1);
 
         try {
-            Address fromAddress = Address.create(fromAddressMap);
-            Address toAddress = Address.create(toAddressMap);
-            Parcel parcel = Parcel.create(parcelMap);
+            Address fromAddress = Address.create(fromAddressMap, apiKey);
+            Address toAddress = Address.create(toAddressMap, apiKey);
+            Parcel parcel = Parcel.create(parcelMap, apiKey);
 
             // Address verified = to_address.verify();
 
@@ -61,22 +60,22 @@ public class SmartPostExample {
             shipmentOptions.put("smartpost_manifest", "123456789");
             shipmentMap.put("options", shipmentOptions);
             
-            Shipment shipment = Shipment.create(shipmentMap);
+            Shipment shipment = Shipment.create(shipmentMap, apiKey);
 
             // buy postage
             List<String> buyServiceCodes = new ArrayList<String>();
             buyServiceCodes.add("fedex.smart_post");
 
             Map<String, Object> buyMap = new HashMap<String, Object>();
-            buyMap.put("rate", shipment.lowestRate(buyServiceCodes));
+            buyMap.put("rate", shipment.lowestRate(buyServiceCodes,null));
             buyMap.put("insurance", 249.99);
 
             // shipment = shipment.buy(shipment.lowestRate(buyCarriers, buyServices));
-            shipment = shipment.buy(buyMap);
+            shipment = shipment.buy(buyMap, apiKey);
 
             Map<String, Object> labelMap = new HashMap<String, Object>();
             labelMap.put("file_format", "pdf");
-            shipment = shipment.label(labelMap);
+            shipment = shipment.label(labelMap, apiKey);
 
             System.out.println(shipment.prettyPrint());
             

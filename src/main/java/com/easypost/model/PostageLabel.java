@@ -171,9 +171,6 @@ public class PostageLabel extends EasyPostResource {
 
 
 	// create
-	public static PostageLabel create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static PostageLabel create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("parcel", params);
@@ -182,17 +179,11 @@ public class PostageLabel extends EasyPostResource {
 	}
 
 	// retrieve
-	public static PostageLabel retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static PostageLabel retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(PostageLabel.class, id), null, PostageLabel.class, apiKey);
 	}
 
 	// all
-	public static PostageLabelCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static PostageLabelCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(PostageLabel.class), params, PostageLabelCollection.class, apiKey);
 	}

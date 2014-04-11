@@ -1,6 +1,5 @@
 package com.easypost.model;
 
-import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,9 +105,6 @@ public class Address extends EasyPostResource {
 	}
 
 	// create
-	public static Address create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static Address create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("address", params);
@@ -117,25 +113,16 @@ public class Address extends EasyPostResource {
 	}
 
 	// retrieve
-	public static Address retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static Address retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(Address.class, id), null, Address.class, apiKey);
 	}
 
 	// all
-	public static AddressCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static AddressCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(Address.class), params, AddressCollection.class, apiKey);
 	}
 
 	// createAndVerify
-	public static Address createAndVerify(Map<String, Object> params) throws EasyPostException {
-		return createAndVerify(params, null);
-	}
 	public static Address createAndVerify(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("address", params);
@@ -151,9 +138,6 @@ public class Address extends EasyPostResource {
 	}
 
 	// verify
-	public Address verify() throws EasyPostException {
-		return this.verify(null);
-	}
 	public Address verify(String apiKey) throws EasyPostException {
 		AddressVerifyResponse response;
 		response = request(RequestMethod.GET, String.format("%s/verify", instanceURL(Address.class, this.getId())), null, AddressVerifyResponse.class, apiKey);

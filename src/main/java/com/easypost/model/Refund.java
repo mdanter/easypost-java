@@ -59,9 +59,6 @@ public class Refund extends EasyPostResource {
 
 
 	// create
-	public static List<Refund> create(Map<String, Object> params) throws EasyPostException {
-		return create(params, null);
-	}
 	public static List<Refund> create(Map<String, Object> params, String apiKey) throws EasyPostException {
 		Map<String, Object> wrappedParams = new HashMap<String, Object>();
 		wrappedParams.put("refund", params);
@@ -70,17 +67,11 @@ public class Refund extends EasyPostResource {
 	}
 
 	// retrieve
-	public static Refund retrieve(String id) throws EasyPostException {
-		return retrieve(id, null);
-	}
 	public static Refund retrieve(String id, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, instanceURL(Refund.class, id), null, Refund.class, apiKey);
 	}
 
 	// all
-	public static RefundCollection all(Map<String, Object> params) throws EasyPostException {
-		return all(params, null);
-	}
 	public static RefundCollection all(Map<String, Object> params, String apiKey) throws EasyPostException {
 		return request(RequestMethod.GET, classURL(Refund.class), params, RefundCollection.class, apiKey);
 	}
