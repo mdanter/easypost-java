@@ -1,24 +1,24 @@
-package com.easypost.app;
+package com.easypost;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import java.lang.InterruptedException;
+import org.junit.Test;
 
-import com.easypost.EasyPost;
 import com.easypost.exception.EasyPostException;
 import com.easypost.model.Address;
-import com.easypost.model.Parcel;
-import com.easypost.model.CustomsItem;
-import com.easypost.model.CustomsInfo;
-import com.easypost.model.Shipment;
 import com.easypost.model.Batch;
+import com.easypost.model.CustomsInfo;
+import com.easypost.model.CustomsItem;
+import com.easypost.model.Parcel;
+import com.easypost.model.Shipment;
 
-public class BatchExample {
+public class BatchExampleTest {
 
-    public static void main(String[] args) throws InterruptedException {
+	@Test
+    public void testBatch() throws InterruptedException {
         String apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
 
         try {
@@ -142,7 +142,7 @@ public class BatchExample {
                 System.out.println("Uh oh");
             }
 
-            // batch label creation is asyncronous; wait for it to be done before continuing
+            // batch label creation is asynchronous; wait for it to be done before continuing
             while(true) {
                 batch = batch.refresh(null, apiKey);
 

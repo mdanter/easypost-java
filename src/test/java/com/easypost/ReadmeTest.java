@@ -1,21 +1,23 @@
-package com.easypost.app;
+package com.easypost;
 
 // java -cp "target/easypost-java-2.0.4.jar:target/gson-2.2.4.jar" Readme
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.easypost.EasyPost;
+import org.junit.Test;
+
 import com.easypost.exception.EasyPostException;
 import com.easypost.model.Address;
 import com.easypost.model.Parcel;
 import com.easypost.model.Shipment;
 
-public class Readme {
+public class ReadmeTest {
 
-	public static void main(String[] args) {
+	@Test
+	public void testReadme() {
 		String apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
 
 		Map<String, Object> fromAddressMap = new HashMap<String, Object>();

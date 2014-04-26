@@ -1,20 +1,23 @@
-package com.easypost.app;
+package com.easypost;
 
 // java -cp "target/easypost-java-2.0.2.jar:target/gson-2.2.2.jar" SmartPostExample
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Test;
 
 import com.easypost.exception.EasyPostException;
 import com.easypost.model.Address;
 import com.easypost.model.Parcel;
 import com.easypost.model.Shipment;
 
-public class SmartPostExample {
+public class SmartPostExampleTest {
 
-    public static void main(String[] args) {
+	@Test(expected=EasyPostException.class)
+    public void testExample() {
         String apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
         
         Map<String, Object> fromAddressMap = new HashMap<String, Object>();
