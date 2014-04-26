@@ -17,7 +17,7 @@ import com.easypost.model.Shipment;
 public class SmartPostExampleTest {
 
 	@Test(expected=EasyPostException.class)
-    public void testExample() {
+    public void testExample() throws EasyPostException {
         String apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
         
         Map<String, Object> fromAddressMap = new HashMap<String, Object>();
@@ -83,7 +83,7 @@ public class SmartPostExampleTest {
             System.out.println(shipment.prettyPrint());
             
         } catch (EasyPostException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 }

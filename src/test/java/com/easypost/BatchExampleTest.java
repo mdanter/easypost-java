@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.easypost.exception.EasyPostException;
@@ -17,8 +18,8 @@ import com.easypost.model.Shipment;
 
 public class BatchExampleTest {
 
-	@Test
-    public void testBatch() throws InterruptedException {
+	@Test @Ignore
+    public void testBatch() {
         String apiKey = "4hkbo3ZNgVGUJJuq4rb9Pw";
 
         try {
@@ -150,7 +151,12 @@ public class BatchExampleTest {
                     break;
                 }
 
-                Thread.sleep(8000);
+                try {
+					Thread.sleep(8000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
 
             System.out.println(batch.prettyPrint());
